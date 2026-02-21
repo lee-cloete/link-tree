@@ -1,3 +1,55 @@
+<template>
+  <main class="container">
+    <header class="profile">
+      <h1 class="name">Lee Cloete</h1>
+      <p class="tagline">Designer &amp; Creator</p>
+    </header>
+
+    <nav class="links">
+      <a
+        v-for="link in links"
+        :key="link.label"
+        class="link-row"
+        :href="link.href"
+        v-bind="link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {}"
+      >
+        <span class="link-label">{{ link.label }}</span>
+        <span class="link-meta">{{ link.meta }} <span class="arrow">&#8594;</span></span>
+      </a>
+    </nav>
+  </main>
+</template>
+
+<script setup lang="ts">
+const links = [
+  {
+    label: 'Website',
+    meta: 'leecloete.com',
+    href: 'https://leecloete.com',
+    external: true
+  },
+  {
+    label: 'LinkedIn',
+    meta: 'in/leecloete',
+    href: 'https://www.linkedin.com/in/leecloete/',
+    external: true
+  },
+  {
+    label: 'Work with me',
+    meta: 'hello@leecloete.com',
+    href: 'mailto:hello@leecloete.com',
+    external: false
+  },
+  {
+    label: 'Drone Audio Tool',
+    meta: 'drone.leecloete.com',
+    href: 'https://drone.leecloete.com',
+    external: true
+  }
+]
+</script>
+
+<style>
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -5,24 +57,27 @@
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #f9f8f6;
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-  color: #111;
-  padding: 3rem 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+</style>
 
+<style scoped>
 .container {
-  width: 100%;
-  max-width: 440px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  color: #111;
+}
+
+.container > * {
+  width: 100%;
+  max-width: 440px;
 }
 
 /* Profile */
@@ -30,6 +85,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  margin-bottom: 3.5rem;
 }
 
 .name {
@@ -101,3 +157,4 @@ body {
 .link-row:hover .arrow {
   transform: translateX(3px);
 }
+</style>
