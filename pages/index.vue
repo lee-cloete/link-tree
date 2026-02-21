@@ -6,7 +6,7 @@
           <img :src="profileImage" alt="Lee Cloete" class="avatar" />
         </div>
         <h1 class="name">Lee Cloete</h1>
-        <p class="handle">@leecloete</p>
+        <p class="handle">@leelulz</p>
       </header>
 
       <nav class="links">
